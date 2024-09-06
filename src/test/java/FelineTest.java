@@ -15,19 +15,21 @@ public class FelineTest {
 
     @Test
     public void getFamilyTest() {
-        Mockito.when(feline.getFamily()).thenReturn("Кошачьи");
         Assert.assertEquals("Кошачьи", feline.getFamily());
     }
+
     @Test
     public void getKittensWithoutParTest() {
         feline.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens(1);
     }
+
     @Test
     public void getKittensWithParTest() {
         feline.getKittens(0);
         Mockito.verify(feline).getKittens(Mockito.anyInt());
     }
+
     @Test
     public void eatMeatTest() throws Exception {
         feline.eatMeat();
