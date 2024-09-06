@@ -19,9 +19,6 @@ public class ParaLionTest {
     @Mock
     private Feline feline;
 
-    @Mock
-    private Animal animal;
-
     public ParaLionTest(String sex, boolean hasMane) {
         this.sex = sex;
         this.hasMane = hasMane;
@@ -37,12 +34,12 @@ public class ParaLionTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);  // Инициализация мок-объектов
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
     public void lionConstructorTest() throws Exception {
-        Lion lion = new Lion(sex);  // Создаем объект Lion, передавая только sex
+        Lion lion = new Lion(sex, feline);
         assertEquals(hasMane, lion.doesHaveMane());
     }
 }
